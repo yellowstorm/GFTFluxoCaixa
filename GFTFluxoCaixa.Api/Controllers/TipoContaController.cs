@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using System;
 using Microsoft.AspNetCore.Mvc;
+using GFTFluxoCaixa.Service.Interface;
 
 namespace GFTFluxoCaixa.Api.Controllers
 {
@@ -28,14 +29,14 @@ namespace GFTFluxoCaixa.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(ProdutoRequest request)
+        public async Task<IActionResult> Create(TipoContaRequest request)
         {
             await _tipoContaService.Create(request);
             return Ok(new { message = "Tipo de conta criado." });
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(Int64 id, ProdutoRequest request)
+        public async Task<IActionResult> Update(Int64 id, TipoContaRequest request)
         {
             await _tipoContaService.Update(id, request);
             return Ok(new { message = "Tipo de conta atualizado." });

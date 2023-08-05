@@ -39,7 +39,9 @@ namespace GFTFluxoCaixa.Api
 
             services.AddSingleton<IDatabaseSetup, DatabaseSetup>();
             services.AddScoped<IProdutoRepository, ProdutoRepository>();
+            services.AddScoped<ITipoContaRepository, TipoContaRepository>();
             services.AddScoped<IProdutoService, ProdutoService>();
+            services.AddScoped<ITipoContaService, TipoContaService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

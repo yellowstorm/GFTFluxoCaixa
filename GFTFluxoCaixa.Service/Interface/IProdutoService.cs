@@ -12,8 +12,6 @@ namespace GFTFluxoCaixa.Service.Interface
         Task<Produto> GetById(Int64 id);
         Task Create(ProdutoRequest request);
         Task Delete(Int64 id);
-        
-        
         Task Update(Int64 id, ProdutoRequest request);
     }
 }

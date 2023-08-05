@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Reflection;
 using System.Threading.Tasks;
 using AutoMapper;
 using GFTFluxoCaixa.Domain.Model;
@@ -16,9 +15,10 @@ namespace GFTFluxoCaixa.Service
         private IProdutoRepository _produtoRepository;
         private readonly IMapper _mapper;
 
-        public ProdutoService(IProdutoRepository produtoRepository)
+        public ProdutoService(IProdutoRepository produtoRepository, IMapper mapper)
         {
             _produtoRepository = produtoRepository;
+            _mapper = mapper;
         }
 
         public async Task<IEnumerable<Produto>> GetAll()
@@ -41,27 +41,24 @@ namespace GFTFluxoCaixa.Service
             if (await _produtoRepository.GetByNome(request.Nome!) != null)
                 throw new AppException("Produto de nome '" + request.Nome + "' já existe.");
 
-            var user = _mapper.Map<Produto>(request);
+            var produto = _mapper.Map<Produto>(request);
 
-            await _produtoRepository.Create(user);
+            await _produtoRepository.Create(produto);
         }
 
         public async Task Update(Int64 id, ProdutoRequest request)
         {
-            var user = await _produtoRepository.GetById(id);
+            var produto = await _produtoRepository.GetById(id);
 
-            if (user == null)
+            if (produto == null)
                 throw new KeyNotFoundException("User not found");
 
-            // validate
             if (await _produtoRepository.GetByNome(request.Nome!) != null)
                 throw new AppException("Produto de nome '" + request.Nome + "' já existe.");
 
-            // copy model props to user
-            _mapper.Map(request, user);
+            _mapper.Map(request, produto);
 
-            // save user
-            await _produtoRepository.Update(user);
+            await _produtoRepository.Update(produto);
         }
 
         public async Task Delete(Int64 id)

@@ -9,7 +9,7 @@ namespace GFTFluxoCaixa.Infrastructure.Data.Mapper
         public AutoMapperProfile()
         {
             CreateMap<ProdutoRequest, Produto>();
-
+            CreateMap<TipoContaRequest, TipoConta>();
             
         }
     }
