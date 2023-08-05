@@ -2,6 +2,6 @@
 
 <p float="left">
 
- <img src="diagrama.png" width="200" />
+ <img src="diagrama.png" width="50%" />
 
 </p>
