@@ -31,6 +31,7 @@ Solution:
    - Example:
         * Visual Studio
              - Open solution and click on run button(GFTFluxoCaixa.Api)
-               <img src="doc/diagrama.png" width="50%" />
+<img src="doc/visual_studio.png" width="100%" />
         * Visual Studio Code
-             - Open solution on Visual Studio Code
+             - Open solution on Visual Studio Code, open Terminal and run dotnet run like this:
+<img src="doc/visual_studio_code.png" width="100%" />
