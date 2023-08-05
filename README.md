@@ -25,7 +25,7 @@ Solution:
 </p>
 
 
-<b>How to run</b>
+## <b>How to run</b>
 1. Clone this repository
 2. Start the api by running dotnet run from the command line in the project root folder
 
@@ -40,6 +40,6 @@ Solution:
    <img src="doc/visual_studio_code.png" width="100%" />
 
 
-<b>How to test</b>
+## <b>How to test</b>
 
 When you clone this repository there is a directory named "doc". There is a json file "GFTFluxoCaixa.postman_collection.json" with examples to how to test the API`s endpoints.
