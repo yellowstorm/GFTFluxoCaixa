@@ -1,13 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace GFTFluxoCaixa.Domain.Model
 {
     public class FluxoCaixa
     {
-        public Int64 Id { get; set; }
-        public int IdTipoConta { get; set; }
-        public Int64 IdProduto { get; set; }
-        public int Quantidade { get; set; }
-        public double ValorUnitario { get; set; }
+        public List<Transacao> TransacoesEntrada;
+        public List<Transacao> TransacoesSaida;
+        public Double TotalEntrada;
+        public Double TotalSaida;
+        public Double TotalFluxoCaixa;
     }
 }

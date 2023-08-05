@@ -1,5 +1,7 @@
 using System;
+using System.Text.Json.Serialization;
 using GFTFluxoCaixa.Api.Configuration;
+using GFTFluxoCaixa.Infrastructure.CrossCutting;
 using GFTFluxoCaixa.Infrastructure.Data;
 using GFTFluxoCaixa.Infrastructure.Data.Interface;
 using GFTFluxoCaixa.Infrastructure.Data.Repository;
@@ -31,6 +33,14 @@ namespace GFTFluxoCaixa.Api
             services.AddCors();
 
             services.AddSingleton<DataContext>();
+            services.AddControllers().AddJsonOptions(x =>
+            {
+                // serialize enums as strings in api responses (e.g. Role)
+                x.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+
+                // ignore omitted parameters on models to enable optional params (e.g. User update)
+                x.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
+            });
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
@@ -40,8 +50,11 @@ namespace GFTFluxoCaixa.Api
             services.AddSingleton<IDatabaseSetup, DatabaseSetup>();
             services.AddScoped<IProdutoRepository, ProdutoRepository>();
             services.AddScoped<ITipoContaRepository, TipoContaRepository>();
+            services.AddScoped<ITransacaoRepository, TransacaoRepository>();
             services.AddScoped<IProdutoService, ProdutoService>();
             services.AddScoped<ITipoContaService, TipoContaService>();
+            services.AddScoped<ITransacaoService, TransacaoService>();
+            services.AddScoped<IFluxoCaixaService, FluxoCaixaService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -53,6 +66,8 @@ namespace GFTFluxoCaixa.Api
             }
 
             app.UseHttpsRedirection();
+
+            app.UseMiddleware<ErrorHandlerMiddleware>();
 
             app.UseSwagger(c => c.RouteTemplate = "swagger/{documentName}/swagger.json");
             app.UseSwaggerUI(x =>
@@ -73,7 +88,8 @@ namespace GFTFluxoCaixa.Api
                 endpoints.MapControllers();
             });
 
-           
+            
+
             serviceProvider.GetService<IDatabaseSetup>().Setup();
         }
     }

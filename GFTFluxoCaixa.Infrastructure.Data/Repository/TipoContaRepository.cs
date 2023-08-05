@@ -40,14 +40,14 @@ namespace GFTFluxoCaixa.Infrastructure.Data.Repository
         {
             using var connection = _dataContext.CreateConnection();
             var sql = " INSERT INTO TipoConta (Nome)VALUES (@Nome)";
-            await connection.ExecuteAsync(sql, tipoConta.Nome);
+            await connection.ExecuteAsync(sql, new { tipoConta.Nome });
         }
 
         public async Task Update(TipoConta tipoConta)
         {
             using var connection = _dataContext.CreateConnection();
             var sql = $@"UPDATE TipoConta 
-                        SET Nome = @Nome,
+                        SET Nome = @Nome
                        WHERE Id = @Id";
             await connection.ExecuteAsync(sql, tipoConta);
         }

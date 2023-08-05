@@ -29,7 +29,7 @@ namespace GFTFluxoCaixa.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(TipoContaRequest request)
+        public async Task<IActionResult> Create([FromBody]TipoContaRequest request)
         {
             await _tipoContaService.Create(request);
             return Ok(new { message = "Tipo de conta criado." });

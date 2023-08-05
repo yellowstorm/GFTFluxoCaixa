@@ -10,7 +10,7 @@ namespace GFTFluxoCaixa.Infrastructure.Data.Mapper
         {
             CreateMap<ProdutoRequest, Produto>();
             CreateMap<TipoContaRequest, TipoConta>();
-            
+            CreateMap<TransacaoRequest, Transacao>();
         }
     }
 }

@@ -40,14 +40,14 @@ namespace GFTFluxoCaixa.Infrastructure.Data.Repository
         {
             using var connection = _dataContext.CreateConnection();
             var sql = " INSERT INTO Produto (Nome)VALUES (@Nome)";
-            await connection.ExecuteAsync(sql, produto.Nome);
+            await connection.ExecuteAsync(sql, new { produto.Nome });
         }
 
         public async Task Update(Produto produto)
         {
             using var connection = _dataContext.CreateConnection();
             var sql = $@"UPDATE Produto 
-                        SET Nome = @Nome,
+                        SET Nome = @Nome
                        WHERE Id = @Id";
             await connection.ExecuteAsync(sql, produto);
         }
@@ -57,6 +57,6 @@ namespace GFTFluxoCaixa.Infrastructure.Data.Repository
             using var connection = _dataContext.CreateConnection();
             var sql = "DELETE FROM Produto WHERE Id = @id";
             await connection.ExecuteAsync(sql, new { id });
-        }       
+        }
     }
 }

@@ -33,7 +33,7 @@ namespace GFTFluxoCaixa.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(ProdutoRequest request)
+        public async Task<IActionResult> Create([FromBody]ProdutoRequest request)
         {
             await _produtoService.Create(request);
             return Ok(new { message = "Produto criado." });

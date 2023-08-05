@@ -38,7 +38,7 @@ namespace GFTFluxoCaixa.Infrastructure.Data
                             PRIMARY KEY(Id AUTOINCREMENT)
                 );");
 
-            await connection.ExecuteAsync($@"Create Table FluxoCaixa(
+            await connection.ExecuteAsync($@"Create Table Transacao(
                             Id    INTEGER NOT NULL UNIQUE,
                             Nome  TEXT NOT NULL,
                             IdTipoConta INTEGER NOT NULL,

@@ -14,8 +14,8 @@ namespace GFTFluxoCaixa.Api.Configuration
                 options.SwaggerDoc("v1", new OpenApiInfo()
                 {
                     Version = "v1",
-                    Title = "Alper Connect - API",
-                    Description = "API do Alper Connect"
+                    Title = "GFTFluxoCaixa - API",
+                    Description = "API do Desafio GFT de Fluxo de Caixa"
                 });
             });
 

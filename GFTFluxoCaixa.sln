@@ -11,17 +11,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Infrastructure", "3 - I
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Service", "4 - Service", "{6BCBD7B1-720E-4B88-BAFA-2711DEDA6538}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - Test", "5 - Test", "{58249FF3-E0BE-4E3F-B13F-2E2D6BBDC868}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GFTFluxoCaixa.Api", "GFTFluxoCaixa.Api\GFTFluxoCaixa.Api.csproj", "{0FFA0A0A-F670-4EA4-A535-8D96BBD55085}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GFTFluxoCaixa.Api", "GFTFluxoCaixa.Api\GFTFluxoCaixa.Api.csproj", "{0FFA0A0A-F670-4EA4-A535-8D96BBD55085}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GFTFluxoCaixa.Domain", "GFTFluxoCaixa.Domain\GFTFluxoCaixa.Domain.csproj", "{00288E05-B337-484E-A83B-066FD58BCF3A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GFTFluxoCaixa.Domain", "GFTFluxoCaixa.Domain\GFTFluxoCaixa.Domain.csproj", "{00288E05-B337-484E-A83B-066FD58BCF3A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GFTFluxoCaixa.Infrastructure.Data", "GFTFluxoCaixa.Infrastructure.Data\GFTFluxoCaixa.Infrastructure.Data.csproj", "{06EB1E9B-22E9-4A9A-BD2A-FA8053569E71}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GFTFluxoCaixa.Infrastructure.Data", "GFTFluxoCaixa.Infrastructure.Data\GFTFluxoCaixa.Infrastructure.Data.csproj", "{06EB1E9B-22E9-4A9A-BD2A-FA8053569E71}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GFTFluxoCaixa.Service", "GFTFluxoCaixa.Service\GFTFluxoCaixa.Service.csproj", "{B0EEE07D-510A-4120-A72A-3E23FCA801D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GFTFluxoCaixa.Service", "GFTFluxoCaixa.Service\GFTFluxoCaixa.Service.csproj", "{B0EEE07D-510A-4120-A72A-3E23FCA801D3}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GFTFluxoCaixa.Infrastructure.CrossCutting", "GFTFluxoCaixa.Infrastructure.CrossCutting\GFTFluxoCaixa.Infrastructure.CrossCutting.csproj", "{FC884504-51ED-47D9-8FDE-057881798E41}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GFTFluxoCaixa.Infrastructure.CrossCutting", "GFTFluxoCaixa.Infrastructure.CrossCutting\GFTFluxoCaixa.Infrastructure.CrossCutting.csproj", "{FC884504-51ED-47D9-8FDE-057881798E41}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
