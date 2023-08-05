@@ -20,7 +20,7 @@ Solution:
    
 <p float="left">
 
- <img src="diagrama.png" width="50%" />
+ <img src="https://github.com/yellowstorm/GFTFluxoCaixa/tree/main/doc/diagrama.png" width="50%" />
 
 </p>
 
