@@ -12,7 +12,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.OpenApi.Models;
 
 namespace GFTFluxoCaixa.Api
 {
@@ -29,7 +28,7 @@ namespace GFTFluxoCaixa.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson();
             services.AddCors();
 
             services.AddSingleton<DataContext>();
@@ -40,6 +39,7 @@ namespace GFTFluxoCaixa.Api
 
                 // ignore omitted parameters on models to enable optional params (e.g. User update)
                 x.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
+                x.JsonSerializerOptions.IncludeFields= true;
             });
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());

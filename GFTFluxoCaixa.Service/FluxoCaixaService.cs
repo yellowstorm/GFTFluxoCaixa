@@ -47,7 +47,7 @@ namespace GFTFluxoCaixa.Service
                 }
             }
 
-            fluxoCaixa.TotalFluxoCaixa = totalEntradas + totalSaidas;
+            fluxoCaixa.TotalFluxoCaixa = Math.Round(fluxoCaixa.TotalEntrada + fluxoCaixa.TotalSaida,2);
             return fluxoCaixa;
         }
     }

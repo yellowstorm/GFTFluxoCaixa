@@ -19,7 +19,7 @@ namespace GFTFluxoCaixa.Infrastructure.Data.Repository
         {
             using var connection = _dataContext.CreateConnection();
             var sql = " INSERT INTO Transacao (Nome, IdTipoConta, IdProduto, Quantidade, ValorUnitario, DataCriacao) VALUES (@Nome, @IdTipoConta, @IdProduto, @Quantidade, @ValorUnitario, @DataCriacao)";
-            await connection.ExecuteAsync(sql, transacao);
+            await connection.ExecuteAsync(sql, new { Nome=transacao.Nome, IdTipoConta=transacao.IdTipoConta, IdProduto=transacao.IdProduto, Quantidade=transacao.Quantidade, ValorUnitario=transacao.ValorUnitario,DataCriacao=DateTime.Now});
         }
 
         public async Task<IEnumerable<Transacao>> GetAllByDataHoje(DateTime now)

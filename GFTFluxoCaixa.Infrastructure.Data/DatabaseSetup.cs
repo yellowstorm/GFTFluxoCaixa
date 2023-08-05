@@ -1,10 +1,7 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
-using System.Xml;
 using Dapper;
-using GFTFluxoCaixa.Domain.Model;
 using GFTFluxoCaixa.Infrastructure.Data.Interface;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace GFTFluxoCaixa.Infrastructure.Data
 {

@@ -1,5 +1,4 @@
 ﻿using System.Threading.Tasks;
-using GFTFluxoCaixa.Domain.Request;
 using GFTFluxoCaixa.Service.Interface;
 using Microsoft.AspNetCore.Mvc;
 

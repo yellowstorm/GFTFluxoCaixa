@@ -33,24 +33,24 @@ namespace GFTFluxoCaixa.Service
         {
             //TODO: precisa validar os campos
             var tipoConta = await _tipoContaRepository.GetById(request.IdTipoConta);
-            if (tipoConta != null)
+            if (tipoConta == null)
                 throw new AppException("Tipo de conta não existente.");
 
             var produto = await _produtoRepository.GetById(request.IdProduto);
-            if (produto != null)
+            if (produto == null)
                 throw new AppException("Produto não existente.");
 
             var transacao = _mapper.Map<Transacao>(request);
 
             if (tipoConta.Id != 1 && tipoConta.Nome.Equals("Entrada"))
             {
-                if (transacao.ValorUnitario < 0)
+                if (transacao.ValorUnitario > 0)
                     throw new AppException($"Valor {transacao.ValorUnitario} deve ser positivo.");
             }
 
             if (tipoConta.Id != 2 && tipoConta.Nome.Equals("Saída"))
             {
-                if (transacao.ValorUnitario > 0)
+                if (transacao.ValorUnitario < 0)
                     throw new AppException($"Valor {transacao.ValorUnitario} deve ser negativo.");
             }
 

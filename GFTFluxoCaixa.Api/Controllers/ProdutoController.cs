@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
-using GFTFluxoCaixa.Domain.Model;
 using GFTFluxoCaixa.Domain.Request;
 using GFTFluxoCaixa.Service.Interface;
 using Microsoft.AspNetCore.Mvc;
