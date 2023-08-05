@@ -28,10 +28,13 @@ Solution:
 <b>How to run</b>
 1. Clone this repository
 2. Start the api by running dotnet run from the command line in the project root folder
-   - Example:
-        * Visual Studio
-             - Open solution and click on run button(GFTFluxoCaixa.Api)
-<img src="doc/visual_studio.png" width="100%" />
-        * Visual Studio Code
-             - Open solution on Visual Studio Code, open Terminal and run dotnet run like this:
-<img src="doc/visual_studio_code.png" width="100%" />
+
+2.1. Example
+
+2.1.1. Visual Studio
+   Open solution and click on run button(GFTFluxoCaixa.Api)
+   <img src="doc/visual_studio.png" width="100%" />
+
+2.1.2. Visual Studio Code
+   Open solution on Visual Studio Code, open Terminal and run dotnet run like this:
+   <img src="doc/visual_studio_code.png" width="100%" />
