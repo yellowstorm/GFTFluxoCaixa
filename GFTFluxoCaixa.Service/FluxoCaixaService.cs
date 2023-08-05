@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using GFTFluxoCaixa.Domain.Model;
-using GFTFluxoCaixa.Domain.Request;
 using GFTFluxoCaixa.Infrastructure.Data.Interface;
 using GFTFluxoCaixa.Service.Interface;
 

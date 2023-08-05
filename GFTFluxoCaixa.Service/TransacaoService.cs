@@ -4,9 +4,7 @@ using System.Threading.Tasks;
 using GFTFluxoCaixa.Infrastructure.Data.Interface;
 using GFTFluxoCaixa.Service.Interface;
 using AutoMapper;
-using System.ComponentModel.DataAnnotations;
 using GFTFluxoCaixa.Infrastructure.CrossCutting;
-using System.Reflection;
 
 namespace GFTFluxoCaixa.Service
 {

@@ -1,6 +1,5 @@
 ﻿using System.Threading.Tasks;
 using GFTFluxoCaixa.Domain.Model;
-using GFTFluxoCaixa.Domain.Request;
 
 namespace GFTFluxoCaixa.Service.Interface
 {
