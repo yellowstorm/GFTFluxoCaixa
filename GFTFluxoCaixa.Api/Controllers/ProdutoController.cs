@@ -1,11 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
+using GFTFluxoCaixa.Domain.Model;
 using GFTFluxoCaixa.Domain.Request;
 using GFTFluxoCaixa.Service.Interface;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GFTFluxoCaixa.Api.Controllers
 {
+    [Route("api/v1/[controller]")]
     public class ProdutoController:ControllerBase
     {
         private readonly IProdutoService _produtoService;
@@ -18,15 +21,15 @@ namespace GFTFluxoCaixa.Api.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var users = await _produtoService.GetAll();
-            return Ok(users);
+            var produtos = await _produtoService.GetAll();
+            return Ok(produtos);
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
-            var user = await _produtoService.GetById(id);
-            return Ok(user);
+            var produto = await _produtoService.GetById(id);
+            return Ok(produto);
         }
 
         [HttpPost]

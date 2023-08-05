@@ -1,4 +1,5 @@
 using System;
+using GFTFluxoCaixa.Api.Configuration;
 using GFTFluxoCaixa.Infrastructure.Data;
 using GFTFluxoCaixa.Infrastructure.Data.Interface;
 using GFTFluxoCaixa.Infrastructure.Data.Repository;
@@ -9,6 +10,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 
 namespace GFTFluxoCaixa.Api
 {
@@ -24,10 +26,16 @@ namespace GFTFluxoCaixa.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc();
             services.AddControllers();
+            services.AddCors();
+
             services.AddSingleton<DataContext>();
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+            services.AddSwagger(Configuration);
+
 
             services.AddSingleton<IDatabaseSetup, DatabaseSetup>();
             services.AddScoped<IProdutoRepository, ProdutoRepository>();
@@ -44,6 +52,16 @@ namespace GFTFluxoCaixa.Api
 
             app.UseHttpsRedirection();
 
+            app.UseSwagger(c => c.RouteTemplate = "swagger/{documentName}/swagger.json");
+            app.UseSwaggerUI(x =>
+            {
+                x.SwaggerEndpoint("/swagger/v1/swagger.json", "GFTFluxoCaixa Documentation");
+                x.OAuthClientId("Swagger");
+                x.OAuthClientSecret("swagger");
+                x.OAuthUseBasicAuthenticationWithAccessCodeGrant();
+            });
+
+
             app.UseRouting();
 
             app.UseAuthorization();
@@ -53,6 +71,7 @@ namespace GFTFluxoCaixa.Api
                 endpoints.MapControllers();
             });
 
+           
             serviceProvider.GetService<IDatabaseSetup>().Setup();
         }
     }

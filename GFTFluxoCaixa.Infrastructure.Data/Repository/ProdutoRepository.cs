@@ -25,29 +25,29 @@ namespace GFTFluxoCaixa.Infrastructure.Data.Repository
         public async Task<Produto> GetById(Int64 id)
         {
             using var connection = _dataContext.CreateConnection();
-            var sql = "SELECT * FROM Users WHERE Id = @id";
+            var sql = "SELECT * FROM Produto WHERE Id = @id";
             return await connection.QuerySingleOrDefaultAsync<Produto>(sql, new { id });
         }
 
         public async Task<Produto> GetByNome(string nome)
         {
             using var connection = _dataContext.CreateConnection();
-            var sql = "SELECT * FROM Users WHERE Name = @nome";
+            var sql = "SELECT * FROM Produto WHERE Nome = @nome";
             return await connection.QuerySingleOrDefaultAsync<Produto>(sql, new { nome });
         }
 
         public async Task Create(Produto produto)
         {
             using var connection = _dataContext.CreateConnection();
-            var sql = " INSERT INTO Produto (Name)VALUES (@Name)";
-            await connection.ExecuteAsync(sql, produto.Name);
+            var sql = " INSERT INTO Produto (Nome)VALUES (@Nome)";
+            await connection.ExecuteAsync(sql, produto.Nome);
         }
 
         public async Task Update(Produto produto)
         {
             using var connection = _dataContext.CreateConnection();
             var sql = $@"UPDATE Produto 
-                        SET Name = @Name,
+                        SET Nome = @Nome,
                        WHERE Id = @Id";
             await connection.ExecuteAsync(sql, produto);
         }
