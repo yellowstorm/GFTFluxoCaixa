@@ -38,3 +38,7 @@ Solution:
 2.1.2. Visual Studio Code
    Open solution on Visual Studio Code, open Terminal and run dotnet run like this:
    <img src="doc/visual_studio_code.png" width="100%" />
+
+
+<b>How to test<b>
+When you clone this repository there is a directory named "doc". There is a json file "GFTFluxoCaixa.postman_collection.json" with examples to how to test the API`s endpoints.
