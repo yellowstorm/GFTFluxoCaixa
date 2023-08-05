@@ -1,0 +1,303 @@
+{
+	"info": {
+		"_postman_id": "ed15f1d5-c85e-40a4-a611-b9be96723485",
+		"name": "GFTFluxoCaixa",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "28404435"
+	},
+	"item": [
+		{
+			"name": "Produto",
+			"item": [
+				{
+					"name": "GetAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:5001/api/v1/Produto"
+					},
+					"response": []
+				},
+				{
+					"name": "GetById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5001/api/v1/Produto/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"v1",
+								"Produto",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Nome\":\"Pasta de dente\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:5001/api/v1/Produto"
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:5001/api/v1/Produto/:id?Nome=Pasta de Dente",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"v1",
+								"Produto",
+								":id"
+							],
+							"query": [
+								{
+									"key": "Nome",
+									"value": "Pasta de Dente"
+								}
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:5001/api/v1/Produto/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"v1",
+								"Produto",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tipo Conta",
+			"item": [
+				{
+					"name": "GetAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:5001/api/v1/TipoConta"
+					},
+					"response": []
+				},
+				{
+					"name": "GetById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5001/api/v1/TipoConta/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"v1",
+								"TipoConta",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Nome\":\"Mista\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:5001/api/v1/TipoConta"
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:5001/api/v1/TipoConta/:id?Nome=Pasta de Dente",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"v1",
+								"TipoConta",
+								":id"
+							],
+							"query": [
+								{
+									"key": "Nome",
+									"value": "Pasta de Dente"
+								}
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:5001/api/v1/TipoConta/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"v1",
+								"TipoConta",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Transacoes",
+			"item": [
+				{
+					"name": "Compra",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idTipoConta\": 1,\r\n  \"nome\":\"Compra de macarrão\",\r\n  \"idProduto\": 1,\r\n  \"quantidade\": 10,\r\n  \"valorUnitario\":-3.88\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:5001/api/v1/Transacao"
+					},
+					"response": []
+				},
+				{
+					"name": "Venda",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idTipoConta\": 2,\r\n  \"nome\":\"Venda de iorgute\",\r\n  \"idProduto\": 3,\r\n  \"quantidade\": 5,\r\n  \"valorUnitario\": 1.99\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:5001/api/v1/Transacao"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "FluxoCaixa",
+			"item": [
+				{
+					"name": "FluxoCaixaDiario",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:5001/api/v1/FluxoCaixa/FluxoCaixaDiario"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
