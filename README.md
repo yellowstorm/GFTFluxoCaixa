@@ -15,16 +15,22 @@ Solution:
  
 <b>Softwares that you need:</b>
 - Visual Studio / Visual Studio Code
-- Framework .Net Core 3.1
+- .NET SDK (3.1)
 - Postman
    
 <p float="left">
 
- <img src="https://github.com/yellowstorm/GFTFluxoCaixa/tree/main/doc/diagrama.png" width="50%" />
+ <img src="doc/diagrama.png" width="50%" />
 
 </p>
 
 
 <b>How to run</b>
 1. Clone this repository
-2. Open
+2. Start the api by running dotnet run from the command line in the project root folder
+   - Example:
+        * Visual Studio
+             - Open solution and click on run button(GFTFluxoCaixa.Api)
+               <img src="doc/diagrama.png" width="50%" />
+        * Visual Studio Code
+             - Open solution on Visual Studio Code
