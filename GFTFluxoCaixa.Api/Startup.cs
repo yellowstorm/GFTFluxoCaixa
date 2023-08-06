@@ -7,10 +7,13 @@ using GFTFluxoCaixa.Infrastructure.Data.Interface;
 using GFTFluxoCaixa.Infrastructure.Data.Repository;
 using GFTFluxoCaixa.Service;
 using GFTFluxoCaixa.Service.Interface;
+using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Hosting;
 
 namespace GFTFluxoCaixa.Api
@@ -39,11 +42,22 @@ namespace GFTFluxoCaixa.Api
 
                 // ignore omitted parameters on models to enable optional params (e.g. User update)
                 x.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
-                x.JsonSerializerOptions.IncludeFields= true;
+                x.JsonSerializerOptions.IncludeFields = true;
             });
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
+            services.AddHealthChecks()
+                .AddSqlite(sqliteConnectionString: Configuration.GetConnectionString("Api_ConnectionString"), healthQuery: "SELECT 1;", name: "Sqlite", failureStatus: HealthStatus.Degraded,
+                 tags: new string[] { "db", "sql", "sqlite" });
+
+            services.AddHealthChecksUI(options =>
+            {
+                options.SetEvaluationTimeInSeconds(5);
+                options.MaximumHistoryEntriesPerEndpoint(10);
+                options.AddHealthCheckEndpoint("API com Health Checks", "/health");
+            })
+.AddInMemoryStorage();
             services.AddSwagger(Configuration);
 
 
@@ -88,7 +102,14 @@ namespace GFTFluxoCaixa.Api
                 endpoints.MapControllers();
             });
 
-            
+
+            app.UseHealthChecks("/health", new HealthCheckOptions
+            {
+                Predicate = p => true,
+                ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+            });
+
+            app.UseHealthChecksUI(options => { options.UIPath = "/dashboard"; });
 
             serviceProvider.GetService<IDatabaseSetup>().Setup();
         }
