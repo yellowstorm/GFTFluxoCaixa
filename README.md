@@ -43,3 +43,13 @@ Solution:
 ## <b>How to test</b>
 
 When you clone this repository there is a directory named "doc". There is a json file "GFTFluxoCaixa.postman_collection.json" with examples to how to test the API`s endpoints.
+
+
+## <b>Healthcheck</b>
+
+You can see the healthy checking the dashboard page.
+http://localhost:5001/dashboard
+![image](https://github.com/yellowstorm/GFTFluxoCaixa/assets/11304672/01e74332-b63a-4efb-9b4f-2ad820896f96)
+
+
+
