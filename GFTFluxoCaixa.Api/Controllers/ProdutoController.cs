@@ -47,6 +47,8 @@ namespace GFTFluxoCaixa.Api.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(Int64 id)
         {
+            if (id==0)
+                return BadRequest(new { message="Informe um Produto." });
             await _produtoService.Delete(id);
             return Ok(new { message = "Produto deletado." });
         }
